@@ -37,18 +37,20 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Zarejestruj konto</div>
         <div class="card-body">
-          <form th:action="@{/register-process}" th:method="post">
+          <form th:action="@{/register}" th:object="${register}" th:method="post">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input th:field="*{firstname}"type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                    <span th:errors="*{firstname}">error</span>
                     <label for="firstName">*Imie</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <input th:field="*{lastname}" type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+                    <span th:errors="*{lastname}">error</span>
                     <label for="lastName">*Nazwisko</label>
                   </div>
                 </div>
@@ -57,6 +59,7 @@
             <div class="form-group">
               <div class="form-label-group">
                 <input th:field="*{email}" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+                <span th:errors="*{email}">error</span>
                 <label for="inputEmail">*Adres Email</label>
               </div>
             </div>
@@ -64,13 +67,15 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input th:field="*{password1}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                    <input th:field="*{password}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                    <span th:errors="*{password}">error</span>
                     <label for="inputPassword">*Hasło</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input th:field="*{password2}"type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                    <input th:field="*{password}"type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                    <span th:errors="*{password}">error</span>
                     <label for="confirmPassword">*Potwierdź hasło</label>
                   </div>
                 </div>
@@ -80,19 +85,20 @@
                   <div class="form-row">
                       <div class="col-md-6">
                           <div class="form-label-group">
-                              <input th:field="*{phone}"type="text" id="phone" class="form-control" placeholder="Telefon" required="required" autofocus="autofocus">
-                              <label for="phone"> *Telefon</label>
+                            <input th:field="*{phone}"type="text" id="phone" class="form-control" placeholder="Telefon" required="required" autofocus="autofocus">
+                            <span th:errors="*{phone}">error</span>
+                            <label for="phone"> *Telefon</label>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-label-group">
-                              <input th:field="*{github}" type="text" id="github" class="form-control" placeholder="GitHub" required="required">
+                              <input th:field="*{github}" type="text" id="github" class="form-control" placeholder="GitHub">
                               <label for="github">GitHub</label>
                           </div>
                       </div>
                   </div>
               </div>
-            <a class="btn btn-primary btn-block" th:type="submit">Zarejestruj</a>
+            <button th:type="submit" class="btn btn-primary btn-block">Zarejestruj</button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="login.html">Zaloguj się</a>
