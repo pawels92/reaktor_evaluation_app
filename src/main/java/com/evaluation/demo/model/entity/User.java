@@ -10,6 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+<<<<<<< HEAD
     @NotBlank
     private String firstname;
     @NotBlank
@@ -20,17 +21,51 @@ public class User {
     private String password;
     private String github;
     @NotBlank
+=======
+    @NotBlank(message = "Musisz podać imię")
+    private String firstname;
+    @NotBlank(message = "Musisz podać nazwisko")
+    private String lastname;
+    @NotBlank(message = "Musisz podać adres email")
+    private String email;
+    @NotBlank(message = "Musisz podać hało")
+    private String password;
+    private String github;
+    @NotBlank(message = "Musisz podać nr telefonu")
+>>>>>>> ac373f245d232d0c08d264ce992e199e0d94989a
     private String phone;
+    private boolean active;
+
+    @ManyToMany
+    @JoinTable(name="user_role")
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public User() {  }
 
-    public User(String firstname, String lastname, String email, String password, String github, String phone) {
+    public User(String firstname, String lastname, String email, String password, String github, String phone, boolean active) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.github = github;
         this.phone = phone;
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Long getId() {

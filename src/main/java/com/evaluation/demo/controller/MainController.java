@@ -16,6 +16,7 @@ import javax.validation.Valid;
 @Controller
 public class MainController {
 
+<<<<<<< HEAD
         ContactService contactService;
         AutoMailingService autoMailingService;
 
@@ -24,17 +25,25 @@ public class MainController {
             this.contactService = contactService;
             this.autoMailingService = autoMailingService;
         }
+=======
+>>>>>>> ac373f245d232d0c08d264ce992e199e0d94989a
     @GetMapping("/")
     public String login(){
         return "homepage";
     }
 
     @GetMapping("/contact")
+<<<<<<< HEAD
     public String contact(Model model) {
         //powiazanie obiektu klasy Contact
         //z obiektem contact z szablonu html
         model.addAttribute("contact", new Contact());
         return "contactPage";
+=======
+    public String kontakt() {
+        return "contact";
+
+>>>>>>> ac373f245d232d0c08d264ce992e199e0d94989a
     }
 
     @PostMapping("/contact")
@@ -60,3 +69,5 @@ public class MainController {
         return "contactPage";
     }
 }
+
+
