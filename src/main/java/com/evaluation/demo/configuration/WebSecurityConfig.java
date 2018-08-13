@@ -32,13 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //jakich wymagają uprawnień
                 //.hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .antMatchers("/changePassword").hasAnyAuthority("ROLE_USER")
-<<<<<<< HEAD
-=======
-                .antMatchers("/post/add").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/post/edit").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/adminView").hasAnyAuthority("role_admin","role_user")
-                .antMatchers("/post/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
->>>>>>> ac373f245d232d0c08d264ce992e199e0d94989a
                 .anyRequest().permitAll()
                 .and()
                 .csrf().disable()
