@@ -10,6 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     @NotBlank(message = "Musisz podać imię")
     private String firstname;
     @NotBlank(message = "Musisz podać nazwisko")
@@ -20,6 +21,7 @@ public class User {
     private String password;
     private String github;
     @NotBlank(message = "Musisz podać nr telefonu")
+
     private String phone;
     private boolean active;
 

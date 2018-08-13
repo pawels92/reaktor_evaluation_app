@@ -14,6 +14,12 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.evaluation.demo.model.entity.User;
+import com.evaluation.demo.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -60,4 +66,11 @@ public class UserService {
         return userRepository.save(modifiedUser);
 
     }
+
+
+
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }
+
 }

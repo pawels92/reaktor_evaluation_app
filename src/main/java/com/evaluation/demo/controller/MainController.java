@@ -25,6 +25,7 @@ public class MainController {
             this.autoMailingService = autoMailingService;
         }
 
+
     @GetMapping("/")
     public String login(){
         return "homePage";
