@@ -28,9 +28,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 //które z podstron wymgają autoryzacji
-                .antMatchers ("/contact")
+                //.antMatchers ("/contact")
                 //jakich wymagają uprawnień
-                .hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
+                //.hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .antMatchers("/changePassword").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/post/add").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/post/edit").hasAnyAuthority("ROLE_ADMIN")
