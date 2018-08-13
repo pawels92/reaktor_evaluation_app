@@ -34,7 +34,7 @@ public class MainController {
         //powiazanie obiektu klasy Contact
         //z obiektem contact z szablonu html
         model.addAttribute("contact", new Contact());
-        return "contact";
+        return "contactPage";
     }
 
     @PostMapping("/contact")
@@ -43,7 +43,7 @@ public class MainController {
         if (bindingResult.hasErrors()) {
             info = "w formularzu występują błędy";
             model.addAttribute("info", info);
-            return "contact";
+            return "contactPage";
         }
         //zapis do DB poprzez ContactService
         contactService.createContact(contact);
@@ -57,7 +57,6 @@ public class MainController {
         contact.setSubject("");
         contact.setMessage("");
         contact.setEmail("");
-        contact = new Contact();
-        return "contact";
+        return "contactPage";
     }
 }

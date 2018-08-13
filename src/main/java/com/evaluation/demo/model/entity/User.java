@@ -1,6 +1,7 @@
 package com.evaluation.demo.model.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Set;
 
@@ -9,11 +10,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String firstname;
+    @NotBlank
     private String lastname;
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
     private String github;
+    @NotBlank
     private String phone;
 
     public User() {  }
