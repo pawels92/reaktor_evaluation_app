@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
   <head>
 
@@ -37,18 +37,18 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Zarejestruj konto</div>
         <div class="card-body">
-          <form>
+          <form th:action="@{/register-process}" th:method="post">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                    <input th:field="*{firstname}"type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
                     <label for="firstName">*Imie</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
+                    <input th:field="*{lastname}" type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
                     <label for="lastName">*Nazwisko</label>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+                <input th:field="*{email}" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
                 <label for="inputEmail">*Adres Email</label>
               </div>
             </div>
@@ -64,13 +64,13 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                    <input th:field="*{password1}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
                     <label for="inputPassword">*Hasło</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                    <input th:field="*{password2}"type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
                     <label for="confirmPassword">*Potwierdź hasło</label>
                   </div>
                 </div>
@@ -80,24 +80,24 @@
                   <div class="form-row">
                       <div class="col-md-6">
                           <div class="form-label-group">
-                              <input type="text" id="phone" class="form-control" placeholder="Telefon" required="required" autofocus="autofocus">
+                              <input th:field="*{phone}"type="text" id="phone" class="form-control" placeholder="Telefon" required="required" autofocus="autofocus">
                               <label for="phone"> *Telefon</label>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="form-label-group">
-                              <input type="text" id="github" class="form-control" placeholder="GitHub" required="required">
+                              <input th:field="*{github}" type="text" id="github" class="form-control" placeholder="GitHub" required="required">
                               <label for="github">GitHub</label>
                           </div>
                       </div>
                   </div>
               </div>
-            <a class="btn btn-primary btn-block" href="login.html">Zarejestruj</a>
+            <a class="btn btn-primary btn-block" th:type="submit">Zarejestruj</a>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="login.html">Zaloguj</a>
+            <a class="d-block small mt-3" href="login.html">Zaloguj się</a>
             <a class="d-block small" href="/forgot-password.html">Zapomniałeś hasła?</a>
-              <a class="d-block small mt-3">* pola obowiązkowe</a>
+              <a class="d-block small mt-3">*pola obowiązkowe</a>
           </form>
 
           </div>
