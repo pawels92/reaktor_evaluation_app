@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/changePassword").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/post/add").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/post/edit").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/post/all").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                .antMatchers("/adminView").hasAnyAuthority("role_admin","role_user")
                 .antMatchers("/post/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .anyRequest().permitAll()
                 .and()
@@ -58,8 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .jdbcAuthentication()
-                .usersByUsernameQuery("SELECT u.email, u.password, u.active FROM user as u WHERE u.email = ?")
-                .authoritiesByUsernameQuery("SELECT u.email, r.role_name FROM user u JOIN user_role ur ON ur.user_id = u.id JOIN role r ON ur.roles_id = r.id WHERE u.email = ?")
+                .usersByUsernameQuery("SELECT email, password, active FROM user WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT u.email, r.role_name FROM user u JOIN role ur ON ur.id = u.id JOIN role r ON ur.id = r.id WHERE u.email = ?")
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
 
