@@ -15,16 +15,38 @@ public class User {
     private String password;
     private String github;
     private String phone;
+    private boolean active;
+
+    @ManyToMany
+    @JoinTable(name="user_role")
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public User() {  }
 
-    public User(String firstname, String lastname, String email, String password, String github, String phone) {
+    public User(String firstname, String lastname, String email, String password, String github, String phone, boolean active) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.github = github;
         this.phone = phone;
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Long getId() {
