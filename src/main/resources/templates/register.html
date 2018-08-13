@@ -42,7 +42,7 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input th:field="*{firstname}"type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                    <input th:field="*{firstname}" type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
                     <span th:errors="*{firstname}">error</span>
                     <label for="firstName">*Imie</label>
                   </div>
@@ -67,15 +67,16 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input th:field="*{password}" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                    <input th:field="*{password}"  type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
                     <span th:errors="*{password}">error</span>
                     <label for="inputPassword">*Hasło</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input th:field="*{password}"type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                    <span th:errors="*{password}">error</span>
+                    <input th:field="*{password1}"type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                    <span th:errors="*{password1}">error</span>
+                    <!--<span th:if="${isDifferent}" th:text="Hasła są różne">errorPassword</span>-->
                     <label for="confirmPassword">*Potwierdź hasło</label>
                   </div>
                 </div>
@@ -85,7 +86,7 @@
                   <div class="form-row">
                       <div class="col-md-6">
                           <div class="form-label-group">
-                            <input th:field="*{phone}"type="text" id="phone" class="form-control" placeholder="Telefon" required="required" autofocus="autofocus">
+                            <input th:field="*{phone}"type="text" id="phone" class="form-control" placeholder="Telefon"  autofocus="autofocus" required="required">
                             <span th:errors="*{phone}">error</span>
                             <label for="phone"> *Telefon</label>
                           </div>

@@ -2,7 +2,6 @@ package com.evaluation.demo.model.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -18,10 +17,19 @@ public class User {
     private String email;
     @NotBlank(message = "Musisz podać hało")
     private String password;
+    @NotBlank(message = "Musisz podać hało")
+    private String password1;
     private String github;
     @NotBlank(message = "Musisz podać nr telefonu")
     private String phone;
+    private String project_name;
+    private String grade;
+    private String desc_grade;
     private boolean active;
+
+    @ManyToOne
+    @JoinColumn(name = "group_mode_id")
+    private GroupMode group_mode;
 
     @ManyToMany
     @JoinTable(name="user_role")
@@ -45,6 +53,20 @@ public class User {
         this.github = github;
         this.phone = phone;
         this.active = active;
+    }
+
+    public User(String project_name, String grade, String desc_grade) {
+        this.project_name = project_name;
+        this.grade = grade;
+        this.desc_grade = desc_grade;
+    }
+
+    public String getPassword1() {
+        return password1;
+    }
+
+    public void setPassword1(String password1) {
+        this.password1 = password1;
     }
 
     public boolean isActive() {
@@ -109,5 +131,29 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getProject_name() {
+        return project_name;
+    }
+
+    public void setProject_name(String project_name) {
+        this.project_name = project_name;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getDesc_grade() {
+        return desc_grade;
+    }
+
+    public void setDesc_grade(String desc_grade) {
+        this.desc_grade = desc_grade;
     }
 }

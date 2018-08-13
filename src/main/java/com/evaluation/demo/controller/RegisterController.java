@@ -25,13 +25,20 @@ public class RegisterController {
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("register", new User());
+
         return "register";
     }
+    boolean isDifferent;
     @PostMapping("/register")
-    public String register(@ModelAttribute @Valid User register, BindingResult bindingResult) {
+    public String register( @ModelAttribute @Valid User register, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "register";
         }
+//        if(!register.getPassword().equals(register.getPassword1())){
+//            isDifferent = true;
+////            model.addAttribute("isDifferent", isDifferent);
+//            return "register";
+//        }
 
         //zapis przez klasę z service
         registerService.createUser(register);
