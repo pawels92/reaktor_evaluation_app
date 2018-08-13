@@ -15,9 +15,9 @@ public class User {
     private String lastname;
     @NotBlank(message = "Musisz podać adres email")
     private String email;
-    @NotBlank(message = "Musisz podać hało")
+    @NotBlank(message = "Musisz podać hasło")
     private String password;
-    @NotBlank(message = "Musisz podać hało")
+    @NotBlank(message = "Musisz podać hasło")
     private String password1;
     private String github;
     @NotBlank(message = "Musisz podać nr telefonu")
