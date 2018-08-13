@@ -10,8 +10,4 @@ public class MainController {
         return "/homePage";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "/register";
-    }
 }
